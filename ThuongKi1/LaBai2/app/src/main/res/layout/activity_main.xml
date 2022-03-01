@@ -9,10 +9,10 @@
 
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tvMay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ABBD09"
+        android:background="#ABBD00"
         android:text="MÁY 1"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -20,29 +20,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
+        android:layout_height="140dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp" >
 
         <ImageView
-            android:id="@+id/imageViewM1"
+            android:id="@+id/imageView1May1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewM2"
+            android:id="@+id/imageView2May1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewM3"
+            android:id="@+id/imageView3May1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
     </LinearLayout>
 
@@ -53,7 +54,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_kqM"
+            android:id="@+id/tvKQMay1"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text=""
@@ -65,7 +66,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/May"
+                android:id="@+id/diemMay1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -74,14 +75,14 @@
                 android:textAlignment="viewEnd" />
 
             <ImageView
-                android:id="@+id/imageSamSet"
+                android:id="@+id/imageSwords"
                 android:layout_width="9dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/samset" />
+                app:srcCompat="@drawable/swords" />
 
             <TextView
-                android:id="@+id/Nguoi"
+                android:id="@+id/diemMay2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -92,7 +93,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_kqNg"
+            android:id="@+id/tvKQMay2"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text=""
@@ -102,41 +103,42 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageViewNg1"
+            android:id="@+id/imageView1May2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewNg2"
+            android:id="@+id/imageView2May2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewNg3"
+            android:id="@+id/imageView3May2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvMay2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ABBD09"
         android:text="MÁY 2"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_marginTop="5dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -144,7 +146,7 @@
         android:layout_gravity="center">
 
         <Button
-            android:id="@+id/btn_play"
+            android:id="@+id/btnChoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PLAY"
@@ -160,12 +162,12 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="66dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText_TimeStart"
+            android:id="@+id/etTimeStart"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -175,7 +177,7 @@
             android:textSize="15dp" />
 
         <EditText
-            android:id="@+id/editText_Step"
+            android:id="@+id/etStep"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:ems="10"

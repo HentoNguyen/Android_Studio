@@ -3,46 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tvMay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MÁY"
         android:textSize="25dp"
         android:textColor="@color/black"
-        android:background="#ABBD09"
+        android:background="#ABBD00"
         android:textAlignment="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:orientation="horizontal">
+        android:layout_height="140dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
 
         <ImageView
-            android:id="@+id/imageViewM1"
+            android:id="@+id/imageViewMay1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewM2"
+            android:id="@+id/imageViewMay2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewM3"
+            android:id="@+id/imageViewMay3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
     </LinearLayout>
 
@@ -53,7 +54,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_kqM"
+            android:id="@+id/tvKQMay"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text=""
@@ -65,7 +66,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/May"
+                android:id="@+id/diemMay"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -78,10 +79,10 @@
                 android:layout_width="9dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/samset" />
+                app:srcCompat="@drawable/swords" />
 
             <TextView
-                android:id="@+id/Nguoi"
+                android:id="@+id/diemNguoi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -92,7 +93,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_kqNg"
+            android:id="@+id/tvKQNguoi"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text=""
@@ -102,44 +103,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="140dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageViewNg1"
+            android:id="@+id/imageViewNguoi1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewNg2"
+            android:id="@+id/imageViewNguoi2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
         <ImageView
-            android:id="@+id/imageViewNg3"
+            android:id="@+id/imageViewNguoi3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/lunglabai" />
+            app:srcCompat="@drawable/labaiup" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvNguoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BẠN"
         android:textSize="25dp"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:background="#ABBD09"/>
+        android:background="#ABBD00"
+        android:layout_marginTop="5dp"
+        />
 
     <Button
-        android:id="@+id/btn_play"
+        android:id="@+id/btnChoi"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="PLAY"

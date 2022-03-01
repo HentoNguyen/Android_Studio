@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    int manghinhbai[] = {
+    int mangCacLaBai[] = {
             R.drawable.ch10, R.drawable.ch2, R.drawable.ch3, R.drawable.ch4, R.drawable.ch5,
             R.drawable.ch6, R.drawable.ch7, R.drawable.ch8, R.drawable.ch9, R.drawable.ch10,
             R.drawable.chj, R.drawable.chq, R.drawable.chk,
@@ -34,25 +34,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Máy
-        ImageView igvM1 = findViewById(R.id.imageViewM1);
-        ImageView igvM2 = findViewById(R.id.imageViewM2);
-        ImageView igvM3 = findViewById(R.id.imageViewM3);
-        //Người Chơi
-        ImageView igvNg1 = findViewById(R.id.imageViewNg1);
-        ImageView igvNg2 = findViewById(R.id.imageViewNg2);
-        ImageView igvNg3 = findViewById(R.id.imageViewNg3);
-        //Kết quả chi tiết
-        TextView tv_M = findViewById(R.id.tv_kqM);
-        TextView tv_Ng = findViewById(R.id.tv_kqNg);
+
+        //Máy 1
+        ImageView imageView1May1 = findViewById(R.id.imageView1May1);
+        ImageView imageView2May1 = findViewById(R.id.imageView2May1);
+        ImageView imageView3May1 = findViewById(R.id.imageView3May1);
+
+
+        //Máy 2
+        ImageView imageView1May2 = findViewById(R.id.imageView1May2);
+        ImageView imageView2May2 = findViewById(R.id.imageView2May2);
+        ImageView imageView3May2 = findViewById(R.id.imageView3May2);
+
+
+        //Kết quả
+        TextView ketQuaMay1 = findViewById(R.id.tvKQMay1);
+        TextView ketQuaMay2 = findViewById(R.id.tvKQMay2);
+
+
         //Điểm cộng dồn
-        TextView may = findViewById(R.id.May);
-        TextView nguoi = findViewById(R.id.Nguoi);
+        TextView diemMay1 = findViewById(R.id.diemMay1);
+        TextView diemMay2 = findViewById(R.id.diemMay2);
+
         //Nút
-        Button choi = findViewById(R.id.btn_play);
+        Button choi = findViewById(R.id.btnChoi);
+
+
         //Thời gian
-        EditText tg = findViewById(R.id.editText_TimeStart);
-        EditText buoc = findViewById(R.id.editText_Step);
+        EditText thoiGian = findViewById(R.id.etTimeStart);
+        EditText buocNhay = findViewById(R.id.etStep);
+
 
         AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
         myDialog.setTitle("Kết Quả");
@@ -60,12 +71,14 @@ public class MainActivity extends AppCompatActivity {
         myDialog.setPositiveButton("Chơi tiếp", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                tg.setText("");
-                buoc.setText("");
+                thoiGian.setText("");
+                buocNhay.setText("");
                 Toast.makeText(MainActivity.this, "Lượt chơi mới", Toast.LENGTH_SHORT).show();
                 recreate();
             }
         });
+
+
         myDialog.setNegativeButton("Thoát", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -76,15 +89,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        AlertDialog.Builder canhbao = new AlertDialog.Builder(this);
-        canhbao.setTitle("Cảnh Báo").setMessage("Chưa nhập thời gian");
+        AlertDialog.Builder thongBao = new AlertDialog.Builder(this);
+        thongBao.setTitle("Thông Báo").setMessage("Bạn chưa nhập thời gian?");
 
-        canhbao.setPositiveButton("Đặt Thời Gian", new DialogInterface.OnClickListener() {
+        thongBao.setPositiveButton("Đặt Thời Gian", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
             }
         });
-        canhbao.setNegativeButton("Thoát", new DialogInterface.OnClickListener() {
+
+
+        thongBao.setNegativeButton("Thoát", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(MainActivity.this, "Thoát khỏi chương trình", Toast.LENGTH_SHORT).show();
@@ -94,65 +109,69 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-        //Set onclick PLAY
+        //Cài đặt tgian chơi
         choi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (tg.length()==0 || buoc.length()==0) {
-                    AlertDialog dialog = canhbao.create();
+                if (thoiGian.length()==0 || buocNhay.length()==0) {
+                    AlertDialog dialog = thongBao.create();
                     dialog.show();
                 } else {
-                    Timer = new CountDownTimer(Integer.parseInt(tg.getText().toString()) * 1000, Integer.parseInt(buoc.getText().toString()) * 1000) {
+                    Timer = new CountDownTimer(Integer.parseInt(thoiGian.getText().toString()) * 1000,
+                            Integer.parseInt(buocNhay.getText().toString()) * 1000) {
+
                         @Override
                         public void onTick(long l) {
-                            int mayW = Integer.parseInt(may.getText().toString().trim());
-                            int nguoiW = Integer.parseInt(nguoi.getText().toString().trim());
-                            int chiabai[] = lay6songaunhien(0, 51);
+                            int may1 = Integer.parseInt(diemMay1.getText().toString().trim());
+                            int may2 = Integer.parseInt(diemMay2.getText().toString().trim());
 
-                            int valueMay[] = {chiabai[0], chiabai[2], chiabai[4]};
-                            igvM1.setImageResource(manghinhbai[valueMay[0]]);
-                            igvM2.setImageResource(manghinhbai[valueMay[1]]);
-                            igvM3.setImageResource(manghinhbai[valueMay[2]]);
-                            tv_M.setText(tinhketqua(valueMay));
+                            int chiabai[] = lay6SoNgauNhien(0, 51);
 
-                            int valueNguoi[] = {chiabai[1], chiabai[3], chiabai[5]};
-                            igvNg1.setImageResource(manghinhbai[valueNguoi[0]]);
-                            igvNg2.setImageResource(manghinhbai[valueNguoi[1]]);
-                            igvNg3.setImageResource(manghinhbai[valueNguoi[2]]);
-                            tv_Ng.setText(tinhketqua(valueNguoi));
+                            int valueMay1[] = {chiabai[0], chiabai[2], chiabai[4]};
+                            imageView1May1.setImageResource(mangCacLaBai[valueMay1[0]]);
+                            imageView2May1.setImageResource(mangCacLaBai[valueMay1[1]]);
+                            imageView3May1.setImageResource(mangCacLaBai[valueMay1[2]]);
+                            ketQuaMay1.setText(tinhKetQua(valueMay1));
 
-                            int nutMay = tinhSoNut(valueMay);
-                            int nutNguoi = tinhSoNut(valueNguoi);
+                            int valueMay2[] = {chiabai[1], chiabai[3], chiabai[5]};
+                            imageView1May2.setImageResource(mangCacLaBai[valueMay2[0]]);
+                            imageView2May2.setImageResource(mangCacLaBai[valueMay2[1]]);
+                            imageView3May2.setImageResource(mangCacLaBai[valueMay2[2]]);
+                            ketQuaMay2.setText(tinhKetQua(valueMay2));
 
-                            if (nutMay > nutNguoi) {
-                                mayW += 1;
-                                may.setText(String.valueOf(mayW));
-                            } else if (nutMay < nutNguoi) {
-                                nguoiW += 1;
-                                nguoi.setText(String.valueOf(nguoiW));
+                            int nutMay1 = tinhSoNut(valueMay1);
+                            int nutMay2 = tinhSoNut(valueMay2);
+
+                            if (nutMay1 > nutMay2) {
+                                may1 += 1;
+                                diemMay1.setText(String.valueOf(may1));
+                            } else if (nutMay1 < nutMay2) {
+                                may2 += 1;
+                                diemMay2.setText(String.valueOf(may2));
                             }
 
                         }
 
                         @Override
                         public void onFinish() {
-                            int mayW = Integer.parseInt(may.getText().toString().trim());
-                            int nguoiW = Integer.parseInt(nguoi.getText().toString().trim());
-                            if (mayW > nguoiW) {
-                                String mes = "Máy 1 WIN\n" + "Máy 1: " + mayW + "\n" + "Máy 2: " + nguoiW;
-                                myDialog.setMessage(mes);
+                            int may1 = Integer.parseInt(diemMay1.getText().toString().trim());
+                            int may2 = Integer.parseInt(diemMay2.getText().toString().trim());
+
+                            if (may1 > may2) {
+                                String mess = "Máy 1 WIN\n" + "Máy 1: " + may1 + "\n" + "Máy 2: " + may2;
+                                myDialog.setMessage(mess);
                                 AlertDialog dialog = myDialog.create();
                                 dialog.show();
-                            } else if (nguoiW > mayW) {
-                                String mes = "Máy 2 WIN\n" + "Máy 2: " + nguoiW + "\n" + "Máy 1: " + mayW;
-                                myDialog.setMessage(mes);
+                            } else if (may2 > may1) {
+                                String mess = "Máy 2 WIN\n" + "Máy 2: " + may2 + "\n" + "Máy 1: " + may1;
+                                myDialog.setMessage(mess);
                                 AlertDialog dialog = myDialog.create();
                                 dialog.show();
-                            } else {
-                                String mes = "DRAW\n" + "Máy 2: " + nguoiW + "\n" + "Máy 1: " + mayW;
-                                myDialog.setMessage(mes);
-                                AlertDialog dialog = myDialog.create();
+                            }
+                            else{
+                                String mess= "HÒA\n"+"Máy 2: "+may2+"\n"+"Máy 1: "+may1;
+                                myDialog.setMessage(mess);
+                                AlertDialog dialog= myDialog.create();
                                 dialog.show();
                             }
                         }
@@ -165,47 +184,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Lấy 3 số ngẫu nhiên ko trùng
-    private int[] lay3songaunhien(int min, int max) {
-        int[] baso = new int[3];
-        int i = 0;
-        baso[i++] = random(min, max);
-        do {
-            int k = random(min, max);
-            if (!ktratrung(k, baso))
-                baso[i++] = k;
-        } while (i < 3);
-        return baso;
-    }
 
-    // Lấy 6 số ngẫu nhiên ko trùng
-    private int[] lay6songaunhien(int min, int max) {
-        int[] baso = new int[6];
-        int i = 0;
-        baso[i++] = random(min, max);
-        do {
-            int k = random(min, max);
-            if (!ktratrung(k, baso))
-                baso[i++] = k;
-        } while (i < 6);
-        return baso;
-    }
 
     //Chọn ngẫu nhiên trong khoảng xác định
     private int random(int min, int max) {
         return min + (int) (Math.random() * (max - min + 1));
     }
 
-    //Kiểm tra giá trị trùng
-    private boolean ktratrung(int k, int[] a) {
+
+    //Kiểm tra  trùng
+    private boolean ktTrung(int k, int[] a) {
         for (int i = 0; i < a.length; i++)
             if (a[i] == k)
                 return true;
         return false;
     }
 
+    // Lấy 6 số ngẫu nhiên không trùng
+    private int[] lay6SoNgauNhien(int min, int max) {
+        int[] baso = new int[6];
+        int i = 0;
+        baso[i++] = random(min, max);
+        do {
+            int k = random(min, max);
+            if (!ktTrung(k, baso))
+                baso[i++] = k;
+        } while (i < 6);
+        return baso;
+    }
+
+
     //Tính số lá Tây
-    private int tinhsoTay(int[] a) {
+    private int tinhSoTay(int[] a) {
         int k = 0;
         for (int i = 0; i < a.length; i++)
             if (a[i] % 13 >= 10 && a[i] % 13 < 13)
@@ -214,9 +224,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Tính kết quả của 3 lá bài rút đc
-    private String tinhketqua(int[] baso) {
+    private String tinhKetQua(int[] baso) {
         String KQ = "";
-        if (tinhsoTay(baso) == 3)
+        if (tinhSoTay(baso) == 3)
             KQ = "Kết Quả: 3 tây";
         else {
             int tong = 0;
@@ -224,15 +234,15 @@ public class MainActivity extends AppCompatActivity {
                 if (baso[i] % 13 < 10)
                     tong += baso[i] % 13 + 1;
             if (tong % 10 == 0)
-                KQ = "Bù, trong đó có " + tinhsoTay(baso) + " tây";
+                KQ = "Bù, trong đó có " + tinhSoTay(baso) + " tây";
             else
-                KQ = "Kết quả là " + tong % 10 + " nút, trong đó có " + tinhsoTay(baso) + " tây";
+                KQ = "Kết quả là " + tong % 10 + " nút, trong đó có " + tinhSoTay(baso) + " tây";
         }
         return KQ;
     }
 
     private int tinhSoNut(int[] baso) {
-        if (tinhsoTay(baso) == 3) {
+        if (tinhSoTay(baso) == 3) {
             return 10;
         } else {
             int tong = 0;
